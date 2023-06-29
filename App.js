@@ -37,6 +37,7 @@ function App() {
     }
     return (positiveReviews / totalReviews) * 100;
   };
+  const Noinput= rate.All==0 
 
 
   const average = calculateAverage()
@@ -54,31 +55,18 @@ function App() {
       <br></br>
       <button onClick={bad}>Bad</button>
       <br></br>
-      <p>
-        STATISTICS
-      </p>
-      <p>
-        Good: {rate.Good}
-      </p>
-
-      <p>
-        Neutral: {rate.Neutral}
-      </p>
-
-      <p>
-        Bad: {rate.Bad}
-      </p>
-
-      <p>
-        All: {rate.All}
-      </p>
-      <p>
-        Average:{average}
-      </p>
-      
-      <p>
-        Positive:{positive}
-      </p>
+      {Noinput ? (
+        <h1>No Input</h1>
+      ) : (
+        <>
+          <p>Good: {rate.Good}</p>
+          <p>Neutral: {rate.Neutral}</p>
+          <p>Bad: {rate.Bad}</p>
+          <p>All: {rate.All}</p>
+          <p>Average: {average}</p>
+          <p>Positive: {positive}</p>
+        </>
+      )}
 
     </div>
   );
